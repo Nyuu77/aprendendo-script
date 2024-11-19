@@ -1,0 +1,142 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/7yhx/kwargs_Ui_Library/main/source.lua"))()
+
+
+local UI = Lib:Create{
+    Theme = "Dark", -- or any other theme
+    Size = UDim2.new(0, 555, 0, 400) -- default
+ }
+ 
+ local Main = UI:Tab{
+    Name = "Inicio"
+ }
+ 
+ local Divider = Main:Divider{
+    Name = "Inicio shit"
+ }
+ 
+ local QuitDivider = Main:Divider{
+    Name = "Sair"
+ }
+
+-- Biblioteca de UI Fictícia
+
+-- Função para criar um botão
+function criarBotao(texto, x, y, largura, altura, acao)
+    local botao = {
+        texto = texto,
+        x = x,
+        y = y,
+        largura = largura,
+        altura = altura,
+        acao = acao
+    }
+
+    function botao:desenhar()
+        -- Código fictício para desenhar o botão na tela
+        print("Desenhando botão: " .. self.texto)
+    end
+
+    function botao:clicar()
+        -- Código fictício para tratar o clique do botão
+        print("Botão " .. self.texto .. " clicado!")
+        self.acao()
+    end
+
+    return botao
+end
+
+-- Função para criar um label (texto)
+function criarLabel(texto, x, y)
+    local label = {
+        texto = texto,
+        x = x,
+        y = y
+    }
+
+    function label:desenhar()
+        -- Código fictício para desenhar o label na tela
+        print("Desenhando label: " .. self.texto)
+    end
+
+    return label
+end
+
+-- Função principal para configurar a UI
+function configurarUI()
+    -- Criando os elementos da UI
+    local botaoAtivarScript = criarBotao("Ativar Script", 100, 100, 200, 50, function()
+        alternarScript()
+    end)
+
+    local botaoAutoFarm = criarBotao("Auto Farm", 100, 200, 200, 50, function()
+        alternarAutoFarm()
+    end)
+
+    local labelStatus = criarLabel("Status do Script: Desativado", 100, 300)
+
+    -- Desenhando os elementos na tela
+    botaoAtivarScript:desenhar()
+    botaoAutoFarm:desenhar()
+    labelStatus:desenhar()
+
+    -- Simulando clique nos botões
+    botaoAtivarScript:clicar()
+    botaoAutoFarm:clicar()
+end
+
+-- Chama a função principal para configurar a UI
+configurarUI()
+-- Script Fictício para Blox Fruits
+
+-- Função para ativar e desativar o script
+local scriptAtivo = false
+function alternarScript()
+    scriptAtivo = not scriptAtivo
+    print("Script Ativado: " .. tostring(scriptAtivo))
+end
+
+-- Função para ajustar o campo de visão (FOV) e localizar jogadores
+function ajustarFOV()
+    if scriptAtivo then
+        print("FOV Ajustado: Setas para localizar jogadores ativadas")
+        -- Código fictício para ajustar o FOV e localizar jogadores
+    end
+end
+
+-- Função para auto farm e completar quests
+local autoFarmAtivo = false
+function alternarAutoFarm()
+    autoFarmAtivo = not autoFarmAtivo
+    if autoFarmAtivo then
+        print("Auto Farm Ativado")
+        -- Código fictício para auto farm, voar e aumentar a velocidade
+    else
+        print("Auto Farm Desativado")
+    end
+end
+
+-- Função principal do script
+function main()
+    print("Bem-vindo ao Script Fictício para Blox Fruits")
+
+    -- Atalhos de teclado fictícios
+    local teclaAtivarScript = "K"
+    local teclaAutoFarm = "L"
+
+    -- Simulando pressões de tecla para ativar/desativar funcionalidades
+    print("Pressione " .. teclaAtivarScript .. " para ativar/desativar o script")
+    print("Pressione " .. teclaAutoFarm .. " para ativar/desativar o auto farm")
+
+    -- Código fictício para detectar pressionamento de teclas e chamar as funções apropriadas
+    while true do
+        local keyPressed = io.read()
+        if keyPressed == teclaAtivarScript then
+            alternarScript()
+        elseif keyPressed == teclaAutoFarm then
+            alternarAutoFarm()
+        end
+    end
+end
+
+-- Chama a função principal
+main()
